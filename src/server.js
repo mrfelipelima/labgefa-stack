@@ -8,11 +8,11 @@ const app = express();
 app.use(cors());
 
 const server = require('http').Server(app);
-const io = require('soket.io')(server);
+const io = require('socket.io')(server);
 
-io.on('connection', soket => {
-    soket.on('connectRoom', box => {
-        soket.join(box);
+io.on('connection', socket => {
+    socket.on('connectRoom', box => {
+        socket.join(box);
     })
 });
 
@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
-app.use('/files', express.static(path.resolve(__dirname, '..', 'temp')))
+app.use('/files', express.static(path.resolve(__dirname, '..', 'temp')));
 
 app.use(require('./routes'));
 
