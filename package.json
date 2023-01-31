@@ -27,5 +27,8 @@
     "eslint-plugin-promise": "^5.2.0",
     "nodemon": "^1.18.11",
     "prettier": "^1.17.0"
+  },
+  "engines": {
+    "node": "11.14.0"
   }
 }
